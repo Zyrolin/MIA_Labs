@@ -59,6 +59,14 @@ builder.Services.AddSwaggerGen(c =>
             [new OpenApiSecuritySchemeReference("Bearer", document)] = []
         });
 });
+
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(Int32.Parse(port));
+});
+
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
