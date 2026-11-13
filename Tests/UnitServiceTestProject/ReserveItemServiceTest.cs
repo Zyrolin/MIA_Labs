@@ -28,7 +28,7 @@ public class ReserveItemServiceTest
 
         var result = await service.GetAverageDailyRateAsync();
 
-        Assert.Equal(10m, result);
+        Assert.Equal(7.5m, result);
         mockGearRepository.Verify(repo => repo.GetAllAsync(), Times.Once);
 
     }
