@@ -21,10 +21,10 @@ jobs:
         run: dotnet restore MyWebApi/MyWebApi.csproj
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build MyWebApi/MyWebApi.csproj --configuration Release --no-restore
 
-      - name: Run tests # Доданий крок для запуску тестів
-        run: dotnet test --configuration Release --no-build --verbosity normal
+      - name: Test
+        run: dotnet test Tests/UnitServiceTestProject/UnitServiceTestProject.csproj --configuration Release
 
       - name: Install Railway CLI
         run: npm i -g @railway/cli
